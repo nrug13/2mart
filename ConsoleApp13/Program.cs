@@ -1,7 +1,7 @@
 
 using System;
 
-namespace _17aprel
+namespace salameleykim
 {
     class Program
     {
