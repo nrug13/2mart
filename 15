@@ -1,0 +1,79 @@
+using System;
+
+namespace ConsoleApp4
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //       *5 dene eded daxil et. Bunlarda 2 denesi 3 reqemli. 2 denesi 6 reqemli. 1 denesi 7 reqemli olsun.
+            //3 reqemli ededlerin cemini tap ve cavabin axirdan 2 denesini kvadratini tap.
+            //Sonra alinan cavabin ustune 3 reqemli ededlerin bir birine yapishdirilmasindan sonra alinan ededei gel.
+            //Cavabdan 7 reqemli ededin son 5 reqemini cix.
+            //Alinan neticenin uzerine 6 reqemlilerin ceminden alinan cavabin axirinci 3 dene ededini gel.
+            //Neticenin uzerine 7 reqemli ededin reqemleri ceminin tersine duzulmesinden alinan cavabi gel.
+            //Cavabin axirina 11 artir.
+            //Sonra 7 reqemli ededin tek yerde dayan reqemlerinde alinan ededi cix.
+            //Cavabin axirdan II reqemi ile axirinci reqemin arasina 88 elave et.
+
+            Random generator = new Random();
+            int a = generator.Next(100, 1000);
+            int b = generator.Next(100, 1000);
+            int c = generator.Next(100000, 1000000);
+            int d = generator.Next(100000, 1000000);
+            int f = generator.Next(1000000, 10000000);
+           
+            int g = a + b;
+            int son2 = g % 100;
+            int son = son2 * son2;
+            Console.WriteLine($"axirdan 2-nin kvadrati:{son}");
+            string ab = a.ToString() + b.ToString();
+            int ab1 = int.Parse(ab);
+            int cem = son + ab1;
+            Console.WriteLine($" uc reqemliler yapisdirilandan sonra cemler {cem}");
+            int ferq = cem - f % 100000;
+            int cem2 = ferq + ((c + d) / 1000);
+
+
+            int sum = 0;
+            
+            sum = 0;
+            while (f != 0)
+            {
+                sum += f % 10;
+                f /= 10;
+            }
+            int sum2;
+            int reverse = 0;
+            while (sum > 0)
+            {
+                reverse = reverse * 10 + sum % 10;
+                sum = sum / 10;
+            }
+            int cem3 = cem2 + reverse;
+            string onb = cem3.ToString() + "11";
+            Console.WriteLine($"11 elave edilenden sonra {onb}");
+            // 7 req tek yerde
+            int sumOdd = 0;
+            int sumEven = 0;
+
+            // Converting integer to String
+            String num = g.ToString();
+
+            // Traversing the String
+            for (int i = 0; i < num.Length; i++)
+                if (i % 2 == 0)
+                    sumOdd = sumOdd + (num[i] - '0');
+                else
+                    sumEven = sumEven + (num[i] - '0');
+            Console.WriteLine($"tek yerde duranlarin cemi{sumOdd}");
+            int cix = sumOdd - int.Parse(onb);
+            
+            string cix2 = cix.ToString();
+            
+            
+            string cix3 = cix2.Insert(cix2.Length - 2, "88");
+            Console.WriteLine(cix3);
+        }
+    }
+}
