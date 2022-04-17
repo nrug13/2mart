@@ -1,0 +1,68 @@
+
+using System;
+
+namespace _17aprel
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //         4 dene eded daxil et. Bunlardan 3 denesi 6 reqemli bir denesi ise 7 reqemli olsun.
+            // 6 reqemli ededlerin her birinin ilk 3 reqeminden alinan ededleri topla.
+            // Neticenin uzerine 7 reqemli ededin son 4 reqeminden alinan ededi gel
+            // Alinan cavabdan cix 7 reqemli ededdin ilk 3 dene reqeminin bir birine vurulmasindan alinan cavabi.
+            // Neticenin 60 % tap.Cavabin axirina 60 artir.
+            //Neticeden 18 % cix.
+
+            Random generator = new Random();
+            String a = generator.Next(100000, 1000000).ToString("D6");
+            string b = generator.Next(100000, 1000000).ToString("D6");
+            string c = generator.Next(100000, 1000000).ToString("D6");
+            string d= generator.Next(1000000, 10000000).ToString("D7");
+            string e = d;
+            Console.WriteLine($"reqemler:" + a + " ve" + b + " ve" + c+ " ve"+d);
+            a = a.Remove(0, 3);
+            b = b.Remove(0, 3);
+            c = c.Remove(0, 3);
+            e = e.Remove(0, 3);
+            int z = int.Parse(e);
+            int n;
+            int m = 1;
+            while(z>0)
+            {
+                n = z % 10;
+                m = m * n;
+                n /= 10;
+            }
+            Console.WriteLine($" 7 reqemlinin ilk uc reqeminin hasili {m}");
+            d= d.Substring(d.Length - 4);
+            Console.WriteLine("eded duzeldilenden sonra ");
+            Console.WriteLine(a);
+            Console.WriteLine(b);
+            Console.WriteLine(c);
+            Console.WriteLine(d);
+            Console.WriteLine("onlarin cemi");
+            int x = int.Parse(a) + int.Parse(b) + int.Parse(c)+int.Parse(d);
+            x = x - m;
+            Console.WriteLine($"cixmadan sonra {x}");
+            double y = Convert.ToDouble(x);
+            y = y * 0.6;
+            string q = y.ToString();
+            q = q + 60;
+            double w = Convert.ToDouble(q);
+            w = w * 0.82;
+            Console.WriteLine($"yekun cavab {w}");
+
+
+
+
+
+
+
+
+
+        }
+
+
+    }
+}
